@@ -5,3 +5,5 @@ release/
 out/
 
 node_modules/
+
+betterocaml-win32-x64/

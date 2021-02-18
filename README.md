@@ -1,13 +1,20 @@
 [![Website betterocaml.ml](https://img.shields.io/website-up-down-green-red/https/betterocaml.ml.svg)](https://betterocaml.ml/)
 [![GitHub license](https://img.shields.io/github/license/jbdo99/betterocaml)](https://github.com/jbdo99/betterocaml/blob/master/LICENSE)
 ![Compatibility](https://img.shields.io/badge/browser-chrome--firefox--edge-green)
-# BetterOCaml
+# Electron BetterOCaml
 
-An efficient, intuitive and cross-platform web Ocaml IDE 
+An efficient, intuitive and cross-platform electronjs ocaml IDE
 
-## Installation / Usage
+## Installation
 
-The IDE is hosted [here](https://betterocaml/editor) but you can host a your own version by simply copy files from `src` directory on your host
+Download the zip in the release section with the correct OS, 
+unzip and run BetterOcaml application
+
+## Build 
+
+With the git command line tool : ``git clone ...electron``  
+Install [npm]() and run ``npm start`` to launch application or 
+``npm build`` to build the executable
 
 ## How to use ?
 
