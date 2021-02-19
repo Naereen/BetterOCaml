@@ -12,8 +12,8 @@ unzip and run BetterOcaml application
 
 ## Build 
 
-With the git command line tool : ``git clone ...electron``  
-Install [npm]() and run ``npm start`` to launch application or 
+With the git command line tool : ``git clone https://github.com/jbdo99/BetterOCaml/tree/electron``  
+Install [npm](), run ``npm install`` and finally ``npm start`` to launch application or 
 ``npm build`` to build the executable
 
 ## How to use ?

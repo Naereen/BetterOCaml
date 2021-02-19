@@ -1,39 +1,47 @@
 {
   "name": "betterocaml",
   "productName": "BetterOCaml",
-  "version": "1.0.0",
-  "description": "betterocaml",
+  "version": "1.0.1",
+  "description": "An efficient, intuitive and cross-platform web Ocaml IDE",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "npx @electron-forge/cli make",
+    "make-win-installer": "node installers/windows/windows_installer.js",
+    "make-mac": "npx @electron-forge/cli make --platform darwin",
+    "make-linux": "npx @electron-forge/cli make --platform linux --targets deb"
   },
   "keywords": [],
   "author": {
     "name": "jbdo",
-    "email": "jean.baptiste.doderlain@gmail.com"
+    "email": "jbwolf@hotmail.com"
   },
   "license": "Apache-2.0",
-  "dependencies": {},
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^11.2.3"
+    "electron": "^11.2.3",
+    "electron-winstaller": "^5.0.0"
   },
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "src/icon/electron/icons/win/icon.ico"
+        "icon": "src/icon/electron/icons"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "betterocaml"
+            "name": "betterocaml",
+            "iconUrl": "src/icon/electon/icons/win/icon.ico",
+            "setupIcon": "src/icon/electon/icons/win/icon.ico"
           }
         },
         {
@@ -44,10 +52,6 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ]

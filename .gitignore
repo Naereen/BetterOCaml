@@ -7,3 +7,5 @@ out/
 node_modules/
 
 betterocaml-win32-x64/
+
+release-builds/BetterOCaml-win32-ia32/
