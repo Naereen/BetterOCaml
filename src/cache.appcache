@@ -1,7 +1,7 @@
 CACHE MANIFEST
-cache.appcache
-favicon.ico
+manifest.json
 index.html
+favicon.ico
 css/bootstrap.css
 css/icon.css
 css/index.css
@@ -20,6 +20,7 @@ icon/android-chrome-512x512.png
 icon/apple-touch-icon.png
 icon/favicon-16x16.png
 icon/favicon-32x32.png
+screenshots/screenshot1.png
 icon/site.webmanifest
 js/buttons.js
 js/editor_change.js
@@ -39,3 +40,5 @@ js/codemirror/show-hint.js
 js/codemirror/sublime.min.js
 js/old/autocomplete.js
 js/old/utility.js
+ORIGIN-TRIAL:
+AjrbkcPx4VQhanju/dkJ6Z+ghjC2uU5A9QpBf3ws/11PSLY/yaDOOwlsAJumW2dJWUmA6v637aXo/6wke+XQVAIAAABReyJvcmlnaW4iOiJodHRwczovL3BlcnNvLmNyYW5zLm9yZzo0NDMiLCJmZWF0dXJlIjoiQXBwQ2FjaGUiLCJleHBpcnkiOjE2MzM0NzgzOTl9
