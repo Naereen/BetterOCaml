@@ -5,6 +5,10 @@
     <title>OCaml toplevel</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.75, maximum-scale=1.75">
+    <meta name="theme-color" content="#263238">
+    <meta http-equiv="origin-trial"
+        content="AjrbkcPx4VQhanju/dkJ6Z+ghjC2uU5A9QpBf3ws/11PSLY/yaDOOwlsAJumW2dJWUmA6v637aXo/6wke+XQVAIAAABReyJvcmlnaW4iOiJodHRwczovL3BlcnNvLmNyYW5zLm9yZzo0NDMiLCJmZWF0dXJlIjoiQXBwQ2FjaGUiLCJleHBpcnkiOjE2MzM0NzgzOTl9">
+    <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
@@ -50,6 +54,7 @@
                     </a>
                 </li>
                 <li><a class="modal-trigger" href="#help"><i class="material-icons">settings</i></a></li>
+                <li><a class="modal-trigger" id="install-button"><i class="material-icons">add</i></a></li>
             </ul>
         </div>
         <div class="nav-content">
@@ -61,14 +66,16 @@
     <div class="fixed-action-btn toplevel-container-btn">
         <a class="btn-floating waves-effect waves-light zoom-button"
             onclick="document.getElementById('output').innerHTML=''"><i class="material-icons">delete</i></a>
-            <a class="btn-floating waves-effect waves-light zoom-button" onclick="changefontsize('box_1', 1.1); changefontsize('box_2', 1.1)"><i
-                    class="material-icons">add</i></a>
-            <a class="btn-floating waves-effect waves-light zoom-button" onclick="changefontsize('box_1', 0.9); changefontsize('box_2', 0.9)"><i
-                    class="material-icons">remove</i></a>
+        <a class="btn-floating waves-effect waves-light zoom-button"
+            onclick="changefontsize('box_1', 1.1); changefontsize('box_2', 1.1)"><i class="material-icons">add</i></a>
+        <a class="btn-floating waves-effect waves-light zoom-button"
+            onclick="changefontsize('box_1', 0.9); changefontsize('box_2', 0.9)"><i
+                class="material-icons">remove</i></a>
     </div>
 
     <div class="fixed-action-btn editor-container-btn">
-        <a class="btn-floating waves-effect waves-light zoom-button" onclick="exec_all(editors[actual_editor()])"><i class="material-icons">play_arrow</i></a>
+        <a class="btn-floating waves-effect waves-light zoom-button" onclick="exec_all(editors[actual_editor()])"><i
+                class="material-icons">play_arrow</i></a>
     </div>
 
     <div id="help" class="modal help">
@@ -193,6 +200,38 @@
                 function (e) {
                     change_theme(e.target.value, editors);
                 }, false);
+
+        /* See https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen#how_do_you_make_an_app_a2hs-ready */
+        let deferredPrompt;
+        const addBtn = document.querySelector('#install-button');
+        addBtn.style.display = 'none';
+
+        $(document).ready(function () {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                e.preventDefault();
+                // Stash the event so it can be triggered later.
+                deferredPrompt = e;
+                // Update UI to notify the user they can add to home screen
+                addBtn.style.display = 'block';
+
+                addBtn.addEventListener('click', (e) => {
+                    // hide our user interface that shows our A2HS button
+                    addBtn.style.display = 'none';
+                    // Show the prompt
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the A2HS prompt');
+                        } else {
+                            console.log('User dismissed the A2HS prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+                });
+            });
+        })
     </script>
 
 </body>
