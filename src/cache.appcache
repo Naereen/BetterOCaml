@@ -2,6 +2,7 @@ CACHE MANIFEST
 manifest.json
 index.html
 favicon.ico
+cache.appcache
 css/bootstrap.css
 css/icon.css
 css/index.css
@@ -21,11 +22,11 @@ icon/apple-touch-icon.png
 icon/favicon-16x16.png
 icon/favicon-32x32.png
 screenshots/screenshot1.png
-icon/site.webmanifest
 js/buttons.js
 js/editor_change.js
 js/jquery.min.js
 js/materialize.min.js
+js/serviceWorker.js
 js/resizer.js
 js/toplevel-4.08.js
 js/codemirror/closebrackets.js

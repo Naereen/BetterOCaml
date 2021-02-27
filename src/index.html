@@ -28,7 +28,7 @@
     <script src="js/codemirror/jump-to-line.js"></script>
     <script src="js/resizer.js"></script>
     <script async defer src="js/buttons.js"></script>
-    <script src="js/toplevel-4.08.js"></script>
+    <script async defer src="js/toplevel-4.08.js"></script>
 </head>
 
 <body>
@@ -180,6 +180,15 @@
             new Resizer(document.querySelector('[name=resizerH1]'), 'V');
             document.getElementById('box_1').style.fontSize = "1.2em";
             document.getElementById('box_2').style.fontSize = "1.2em";
+
+            if('serviceWorker' in navigator){
+                try {
+                    navigator.serviceWorker.register('serviceWorker.js');
+                    console.log("Service Worker Registered");
+                } catch (error) {
+                    console.log("Service Worker Registration Failed");
+                }
+            }
         }, false);
 
         //window.onbeforeunload = function () {
